@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class ReverseLinkedList {
     public static void main(String[] args) {
 
@@ -6,17 +8,19 @@ public class ReverseLinkedList {
 
 class Solution {
     public ListNode reverseList(ListNode head) {
-        ListNode curr = head;
-        ListNode prev = null;
-        ListNode next = null;
+        if(head==null || head.next ==null) return head;
 
-        while(curr.next!=null){
+        ListNode  curr = head;
+        ListNode prev = null;
+        ListNode next;
+
+        while(curr!=null){
             next = curr.next;
             curr.next = prev;
-//            prev.next = null;
             prev = curr;
             curr = next;
         }
-        return curr;
+
+        return prev;
     }
 }
