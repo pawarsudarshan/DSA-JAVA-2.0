@@ -1,3 +1,5 @@
+package DSA2.linkedlist;
+
 public class ListNode {
      int val;
      ListNode next;

@@ -1,3 +1,5 @@
+package DSA2.arrays2;
+
 import java.util.Arrays;
 
 public class RotateArray {

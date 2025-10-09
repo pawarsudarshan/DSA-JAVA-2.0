@@ -1,3 +1,5 @@
+package DSA2.arrays2;
+
 public class UniquePaths {
     public static void main(String[] args) {
         int m = 3, n = 2;

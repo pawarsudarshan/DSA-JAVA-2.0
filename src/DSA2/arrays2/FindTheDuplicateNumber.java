@@ -1,3 +1,5 @@
+package DSA2.arrays2;
+
 public class FindTheDuplicateNumber {
     public static void main(String[] args) {
         int [] nums = {1,3,4,2,2};

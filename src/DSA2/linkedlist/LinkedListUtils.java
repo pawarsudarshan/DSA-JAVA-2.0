@@ -1,3 +1,5 @@
+package DSA2.linkedlist;
+
 public class LinkedListUtils {
 
     // Create a linked list from an integer array

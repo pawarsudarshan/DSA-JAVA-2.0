@@ -1,3 +1,5 @@
+package DSA2.arrays1;
+
 public class SetMatrixZeroes {
     public static void main(String[] args) {
         // test cases code

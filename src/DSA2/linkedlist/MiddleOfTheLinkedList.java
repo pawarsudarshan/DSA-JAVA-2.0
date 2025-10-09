@@ -1,3 +1,5 @@
+package DSA2.linkedlist;
+
 public class MiddleOfTheLinkedList {
     public static void main(String[] args) {
         ListNode head = LinkedListUtils.getSampleLinkedList();

@@ -1,3 +1,5 @@
+package DSA2.arrays2;
+
 public class SearchIn2DMatrix {
     public static void main(String[] args) {
         int[][] matrix = {};

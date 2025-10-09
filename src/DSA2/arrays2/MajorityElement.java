@@ -1,3 +1,5 @@
+package DSA2.arrays2;
+
 public class MajorityElement {
 
     public static void main(String[] args) {

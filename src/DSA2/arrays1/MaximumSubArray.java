@@ -1,3 +1,5 @@
+package DSA2.arrays1;
+
 public class MaximumSubArray {
     public static void main(String[] args) {
         // run code

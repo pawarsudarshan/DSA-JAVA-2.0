@@ -1,3 +1,5 @@
+package DSA2.arrays1;
+
 import java.util.Arrays;
 
 public class SortColors {
