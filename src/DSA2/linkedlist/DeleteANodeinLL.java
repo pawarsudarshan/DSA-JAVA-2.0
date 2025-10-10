@@ -26,7 +26,7 @@ public class DeleteANodeinLL {
         }
         prev.next = null;
 
-        // much easier solution
+        // much easier solution O(1)
         // just change the links of node and elements next to it
 
         // node.val = node.next.val;
