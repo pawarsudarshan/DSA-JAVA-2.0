@@ -1,5 +1,5 @@
 package DSA2.searching;
-
+// Basically it is agressive cows problem
 import java.util.Arrays;
 
 public class MagneticForceBetweenTwoBalls {
