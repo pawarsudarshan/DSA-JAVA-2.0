@@ -27,7 +27,6 @@ public class MagneticForceBetweenTwoBalls {
 
     public static boolean check(int[] pos, int m, int mid){
         int n = pos.length, count = 1, prev = pos[0];
-//        System.out.println("mid: "+mid);
         for(int i=1;i<n;i++){
             if(pos[i]-prev >=mid){
                 prev = pos[i];
@@ -35,7 +34,6 @@ public class MagneticForceBetweenTwoBalls {
             }
             if(count==m) return true;
         }
-//        System.out.println("mid -out: "+mid);
         return false;
     }
 }
