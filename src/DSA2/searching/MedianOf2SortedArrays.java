@@ -70,7 +70,7 @@ public class MedianOf2SortedArrays {
 /*
 Optimal Approach (O(log(min(m, n))) time):
 Use binary search on the smaller array to find a partition where:
-maxLeftA ≤ minRightB and maxLeftB ≤ minRightA.
+l1 ≤ r2 and l2 ≤ r1.
 Calculate median from max of left parts and min of right parts.
 Handles both even and odd total lengths efficiently
  */
@@ -81,25 +81,25 @@ Handles both even and odd total lengths efficiently
 //    int low = 0, high = m;
 //
 //    while (low <= high) {
-//        int i = (low + high) / 2;
-//        int j = (m + n + 1) / 2 - i;
+//        int cut1 = (low + high) / 2;
+//        int cut2 = (m + n + 1) / 2 - i;
 //
-//        int maxLeftA = (i == 0) ? Integer.MIN_VALUE : A[i - 1];
-//        int minRightA = (i == m) ? Integer.MAX_VALUE : A[i];
+//        int l1 = (cut1 == 0) ? Integer.MIN_VALUE : A[i - 1];
+//        int r1 = (cut1 == m) ? Integer.MAX_VALUE : A[i];
 //
-//        int maxLeftB = (j == 0) ? Integer.MIN_VALUE : B[j - 1];
-//        int minRightB = (j == n) ? Integer.MAX_VALUE : B[j];
+//        int l2 = (cut2 == 0) ? Integer.MIN_VALUE : B[j - 1];
+//        int r2 = (cut2 == n) ? Integer.MAX_VALUE : B[j];
 //
-//        if (maxLeftA <= minRightB && maxLeftB <= minRightA) {
+//        if (l1 <= r2 && l2 <= r1) {
 //            if ((m + n) % 2 == 0) {
-//                return (Math.max(maxLeftA, maxLeftB) + Math.min(minRightA, minRightB)) / 2.0;
+//                return (Math.max(l1, l2) + Math.min(r1, r2)) / 2.0;
 //            } else {
-//                return Math.max(maxLeftA, maxLeftB);
+//                return Math.max(l1, l2);
 //            }
-//        } else if (maxLeftA > minRightB) {
-//            high = i - 1;
+//        } else if (l1 > r2) {
+//            high = cut1 - 1;
 //        } else {
-//            low = i + 1;
+//            low = cut1 + 1;
 //        }
 //    }
 //
