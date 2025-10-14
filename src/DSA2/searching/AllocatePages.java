@@ -8,6 +8,7 @@ public class AllocatePages {
     }
     public static int findPages(int[] nums, int k){
         int start = 1_000_000_000, end = 0, ans = 0;
+        if(k>nums.length || k<=0) return -1;
 
         for(int i=0;i<nums.length;i++){
             if(nums[i]<start) start = nums[i];
