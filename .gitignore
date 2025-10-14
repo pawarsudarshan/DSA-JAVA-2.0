@@ -1,0 +1,12 @@
+# Default ignored files
+/shelf/
+/.idea/workspace.xml
+DSA-JAVA-2.0.git
+
+# Ignore compiled class files and build output
+out/
+*.class
+
+# IntelliJ project files (optional)
+.idea/
+*.iml
