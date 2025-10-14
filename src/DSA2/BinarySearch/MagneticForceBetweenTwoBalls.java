@@ -1,4 +1,4 @@
-package DSA2.searching;
+package DSA2.BinarySearch;
 // Basically it is agressive cows problem
 import java.util.Arrays;
 

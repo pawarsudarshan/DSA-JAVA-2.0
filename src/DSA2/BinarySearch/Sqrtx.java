@@ -1,4 +1,4 @@
-package DSA2.searching;
+package DSA2.BinarySearch;
 
 public class Sqrtx {
     public static void main(String[] args) {

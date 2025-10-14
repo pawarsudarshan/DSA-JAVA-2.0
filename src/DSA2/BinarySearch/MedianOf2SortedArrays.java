@@ -1,4 +1,4 @@
-package DSA2.searching;
+package DSA2.BinarySearch;
 // This question can be solved using two methods:
 // Solution 1: binary search on answer
 // Solution 2: Virtual Partition of the Array - see commented code at the end

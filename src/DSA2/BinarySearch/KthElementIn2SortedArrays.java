@@ -1,4 +1,4 @@
-package DSA2.searching;
+package DSA2.BinarySearch;
 /*
 Intuition: Binary Search on Answer
 For Counting less than or Equal to Function: save and move right
