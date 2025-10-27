@@ -11,6 +11,11 @@ class Pair{
 }
 
 /*
+Approach: Greedy
+- create a list of pairs (value,weight)
+- sort the list based on value/weight ratio in descending order
+- greedily take the highest ratio items first
+---------------------------------------------
 Need to get  hands dirty on Java the language
 1. How to create a custom Pair class
 2. Create array/lists based on custom data types
@@ -24,7 +29,6 @@ public class FractionalKnapsack {
         System.out.println(fractionalKnapsack(val,wt,capacity));
     }
     public static double fractionalKnapsack(int[] val, int[] wt, int capacity) {
-        // code here
         List<Pair> list = new ArrayList<>();
         int n = wt.length;
 
