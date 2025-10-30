@@ -19,7 +19,7 @@ public class LongestPalindromicSubstring {
         Boolean[][] dp = new Boolean[n][n];
 
         for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
+            for(int j=i;j<n;j++){
                 if(isPalindrome(s,i,j,dp)){
                     if(j-i+1>maxLen){
                         maxLen = j-i+1;
