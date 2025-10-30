@@ -16,11 +16,11 @@ public class MinimumSumPathInMatrix {
     public int minPathSum(int[][] matrix) {
         List<Integer> minSum = new ArrayList<>();
         minSum.add(Integer.MAX_VALUE);
-        solve(matrix, 0, 0, 0, minSum);
+        check(matrix, 0, 0, 0, minSum);
         return minSum.get(0);
     }
 
-    public void solve(int[][] grid, int row, int col, int sum, List<Integer> minSum) {
+    public void check(int[][] grid, int row, int col, int sum, List<Integer> minSum) {
         int m = grid.length, n = grid[0].length;
         if (row >= m || col >= n) return;
 
@@ -33,8 +33,8 @@ public class MinimumSumPathInMatrix {
             return;
         }
 
-        solve(grid, row + 1, col, sum, minSum); // Down
-        solve(grid, row, col + 1, sum, minSum); // Right
+        check(grid, row + 1, col, sum, minSum); // Down
+        check(grid, row, col + 1, sum, minSum); // Right
     }
     */
     // Tabulation

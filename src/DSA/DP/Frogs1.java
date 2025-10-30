@@ -10,7 +10,7 @@ public class Frogs1 {
         System.out.println(minCost(arr,n));
     }
 //      Recursive + Memoization
-//    static int solve(int[] arr, int idx, int n, int[] dp){
+//    static int check(int[] arr, int idx, int n, int[] dp){
 //        if(idx==n-1) return 0;
 //
 //        if(dp[idx]!=-1) return dp[idx];
@@ -18,17 +18,17 @@ public class Frogs1 {
 //        int first = Integer.MAX_VALUE, second = Integer.MAX_VALUE;
 //
 //        if(idx+1<n){
-//            first = Math.abs(arr[idx+1]-arr[idx]) + solve(arr,idx+1, n, dp);
+//            first = Math.abs(arr[idx+1]-arr[idx]) + check(arr,idx+1, n, dp);
 //        }
 //        if(idx+2<n){
-//            second = Math.abs(arr[idx+2]-arr[idx]) + solve(arr,idx+2,n,dp);
+//            second = Math.abs(arr[idx+2]-arr[idx]) + check(arr,idx+2,n,dp);
 //        }
 //        return dp[idx] = Math.min(first,second);
 //    }
 //    static int minCost(int[] arr , int n){
 //        int[] dp = new int[n+1];
 //        Arrays.fill(dp,-1);
-//        return solve(arr,0,n,dp);
+//        return check(arr,0,n,dp);
 //    }
 
     // bottom up approach

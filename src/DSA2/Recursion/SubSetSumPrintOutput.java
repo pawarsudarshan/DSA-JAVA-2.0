@@ -49,12 +49,12 @@ public class SubSetSumPrintOutput {
 //    public static List<Integer> subsetSum(int[] arr, int target, List<List<Integer>> finalList){
 //        int n = arr.length;
 //        List<Integer> list = new ArrayList<>();
-//        solve(arr,target,n-1,0, list, finalList);
+//        check(arr,target,n-1,0, list, finalList);
 //        System.out.println(list);
 //        return list;
 //    }
 //
-//    public static boolean solve(int[] arr, int target, int index, int sum, List<Integer> list, List<List<Integer>> finalList){
+//    public static boolean check(int[] arr, int target, int index, int sum, List<Integer> list, List<List<Integer>> finalList){
 //        if(sum==target){
 //            finalList.add(list);
 //            return true;
@@ -62,8 +62,8 @@ public class SubSetSumPrintOutput {
 //        if(sum>target) return false;
 //        if(index<0) return false;
 //
-//        boolean exclude = solve(arr,target,index-1, sum, list, finalList);
-//        boolean include = solve(arr,target,index-1,sum+arr[index], list, finalList);
+//        boolean exclude = check(arr,target,index-1, sum, list, finalList);
+//        boolean include = check(arr,target,index-1,sum+arr[index], list, finalList);
 //
 //        if(include){
 //            System.out.println("Added in list: "+index+" "+arr[index]);

@@ -1,6 +1,6 @@
 package RandomDSAQuestions2;
 import java.util.*;
-// solve this once again
+// check this once again
 
 public class ThreeDivisors {
     public static void main(String[] args) {

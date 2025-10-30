@@ -35,10 +35,10 @@ public class HouseRobber3 {
 
     public int rob(TreeNode root) {
         dp.clear();
-        return solve(root);
+        return check(root);
     }
 
-    public int solve(TreeNode node){
+    public int check(TreeNode node){
         // Base case
         if(node==null) return 0;
 
@@ -48,14 +48,14 @@ public class HouseRobber3 {
         // robbing the node
         int rob = node.val;
         if(node.left!=null){
-            rob += solve(node.left.left) + solve(node.left.right);
+            rob += check(node.left.left) + check(node.left.right);
         }
         if(node.right!=null){
-            rob += solve(node.right.left) + solve(node.right.right);
+            rob += check(node.right.left) + check(node.right.right);
         }
 
         // not robbing the node
-        int skip = solve(node.left) + solve(node.right);
+        int skip = check(node.left) + check(node.right);
 
         dp.put(node,Math.max(rob,skip)); // storing result before returning
         return dp.get(node);

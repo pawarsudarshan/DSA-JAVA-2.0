@@ -5,7 +5,7 @@ Solved this question very fast, boosted my confidence
 Optimized approach:
 Instead of computing height, add levels to finalAns as needed. See Below
 
-public void solve(TreeNode root, int level, List<List<Integer>> finalAns) {
+public void check(TreeNode root, int level, List<List<Integer>> finalAns) {
     if (root == null) return;
 
     if (level == finalAns.size()) {
@@ -13,8 +13,8 @@ public void solve(TreeNode root, int level, List<List<Integer>> finalAns) {
     }
 
     finalAns.get(level).add(root.val);
-    solve(root.left, level + 1, finalAns);
-    solve(root.right, level + 1, finalAns);
+    check(root.left, level + 1, finalAns);
+    check(root.right, level + 1, finalAns);
 }
 
 */

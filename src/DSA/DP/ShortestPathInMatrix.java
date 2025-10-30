@@ -101,7 +101,7 @@ public class ShortestPathInMatrix {
  * static public int shortestPath(int[][] grid, int k) {
  * int n = grid.length, m = grid[0].length;
  * int[][] vis = new int[n][m];
- * int ans = solve(grid,vis,k,0,0);
+ * int ans = check(grid,vis,k,0,0);
  * 
  * // for(int i=0;i<n;i++){
  * // for(int j=0;j<m;j++){
@@ -113,7 +113,7 @@ public class ShortestPathInMatrix {
  * if(ans == Integer.MAX_VALUE) return -1;
  * return ans;
  * }
- * static int solve(int[][] grid, int[][] vis, int k, int i, int j){
+ * static int check(int[][] grid, int[][] vis, int k, int i, int j){
  * int n = grid.length, m = grid[0].length;
  * 
  * // for(int i=0;i<n;i++){
@@ -134,25 +134,25 @@ public class ShortestPathInMatrix {
  * 
  * // down
  * if(i<n-1 && vis[i+1][j]==0){
- * int b = solve(grid,vis,k,i+1,j);
+ * int b = check(grid,vis,k,i+1,j);
  * if(b!=Integer.MAX_VALUE) ans = Math.min(ans,1+b);
  * }
  * 
  * // right
  * if(j<m-1 && vis[i][j+1]==0){
- * int d = solve(grid,vis,k,i,j+1);
+ * int d = check(grid,vis,k,i,j+1);
  * if(d!=Integer.MAX_VALUE) ans = Math.min(ans,1+d);
  * }
  * 
  * // left
  * if(j>0 && vis[i][j-1]==0){
- * int c = solve(grid,vis,k,i,j-1);
+ * int c = check(grid,vis,k,i,j-1);
  * if(c!=Integer.MAX_VALUE) ans = Math.min(ans,1+c);
  * }
  * 
  * // up
  * if(i>0 && vis[i-1][j]==0){
- * int a = solve(grid,vis,k,i-1,j);
+ * int a = check(grid,vis,k,i-1,j);
  * if(a!=Integer.MAX_VALUE) ans = Math.min(ans,1+a);
  * }
  * 

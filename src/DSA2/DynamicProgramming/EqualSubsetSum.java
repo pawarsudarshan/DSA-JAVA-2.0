@@ -43,16 +43,16 @@ public class EqualSubsetSum {
         if ((sum & 1) == 1) return false; // odd sum can't be partitioned equally
 
         int target = sum / 2;
-        return solve(nums, n - 1, 0, target);
+        return check(nums, n - 1, 0, target);
     }
 
-    public boolean solve(int[] nums, int index, int currSum, int target) {
+    public boolean check(int[] nums, int index, int currSum, int target) {
         if (currSum == target) return true;          // found a subset
         if (index < 0 || currSum > target) return false; // invalid path
 
         // include or exclude current element
-        boolean include = solve(nums, index - 1, currSum + nums[index], target);
-        boolean exclude = solve(nums, index - 1, currSum, target);
+        boolean include = check(nums, index - 1, currSum + nums[index], target);
+        boolean exclude = check(nums, index - 1, currSum, target);
 
         return include || exclude;
     }
