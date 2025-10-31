@@ -1,8 +1,15 @@
 package DSA2.BinaryTree;
-
 import java.util.ArrayList;
 import java.util.List;
-
+/*
+If Condition is such that: If there are multiple bottom-most nodes for a horizontal distance from the root,
+then the latter one in the level order traversal is considered.
+Then make change => such that right most node will be considered
+if(posCol.get(col).first<=level){
+    posCol.get(col).first = level;
+    posCol.get(col).second = root.val;
+}
+ */
 public class BottomViewOfBT {
     public static void main(String[] args) {
         /*
