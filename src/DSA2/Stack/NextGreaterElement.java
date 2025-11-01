@@ -1,7 +1,7 @@
 package DSA2.Stack;
 import java.util.*;
 
-public class NextGreaterElement1 {
+public class NextGreaterElement {
     public static void main(String[] args) {
         int[] nums1 = {4,1,2};
         int[] nums2 = {1,3,4,2};
