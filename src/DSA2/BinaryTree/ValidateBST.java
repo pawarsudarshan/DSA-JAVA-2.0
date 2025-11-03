@@ -24,12 +24,12 @@ public class ValidateBST {
         root.right.right = new TreeNode(6);
 
     }
-    public static boolean isValidBST(TreeNode root) {
-        return solve(root);
-    }
-
-    public static int solve(TreeNode root){
-        solve(root.left);
-        solve(root.right);
-    }
+//    public static boolean isValidBST(TreeNode root) {
+//        return solve(root);
+//    }
+//
+//    public static int solve(TreeNode root){
+//        solve(root.left);
+//        solve(root.right);
+//    }
 }
