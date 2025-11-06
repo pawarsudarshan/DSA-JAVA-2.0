@@ -31,7 +31,7 @@ public class KthSmallestInBST {
 
         if(solve(root.left,res)) return true;
 
-        if(res[0]==0) {
+        if(--res[0]==0) {
             res[1] = root.val;
             return true; // stop traversal
         }
