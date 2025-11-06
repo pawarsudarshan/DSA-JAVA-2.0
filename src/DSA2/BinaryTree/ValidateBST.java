@@ -6,30 +6,27 @@ A valid BST is defined as follows:
 1. The left subtree of a node contains only nodes with keys strictly less than the node's key.
 2. The right subtree of a node contains only nodes with keys strictly greater than the node's key.
 3. Both the left and right subtrees must also be binary search trees.
+
+Approach: maintain two variables, min and max
+while going left => root.val becomes maxvalue
+while going right => root.val becomes minvalue
 */
 public class ValidateBST {
-    public static void main(String[] args) {
-        /*
-                 1
-                / \
-               2   3
-              / \   \
-             4   5   6
-        */
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(3);
-        root.left.left = new TreeNode(4);
-        root.left.right = new TreeNode(5);
-        root.right.right = new TreeNode(6);
 
+    public boolean isValidBST(TreeNode root) {
+        return verify(root,Long.MIN_VALUE,Long.MAX_VALUE);
     }
-//    public static boolean isValidBST(TreeNode root) {
-//        return solve(root);
-//    }
-//
-//    public static int solve(TreeNode root){
-//        solve(root.left);
-//        solve(root.right);
-//    }
+
+    public boolean verify(TreeNode root, long min, long max){
+        if(root==null) return true;
+
+        boolean left = verify(root.left,min,root.val);
+        boolean right = verify(root.right,root.val,max);
+
+        if(left && right && (long)root.val>min && (long)root.val<max){
+            return true;
+        }
+
+        return false;
+    }
 }
