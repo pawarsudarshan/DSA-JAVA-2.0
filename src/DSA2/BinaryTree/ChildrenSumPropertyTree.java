@@ -1,6 +1,6 @@
 package DSA2.BinaryTree;
 /* Given the root of Binary Tree, return true if and only if every node's
-value is equal to the sum of the values stored in its left and right subtree
+value is equal to the sum of the values stored in its left and right child nodes
 */
 
 public class ChildrenSumPropertyTree {
