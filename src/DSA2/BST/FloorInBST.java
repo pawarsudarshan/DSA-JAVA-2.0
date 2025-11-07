@@ -1,8 +1,23 @@
-package DSA2.BinaryTree;
-/*
-Recursive approach & iterative approach
- */
+package DSA2.BST;
+import DSA2.BinaryTree.TreeNode;
+/* Recursive approach & iterative approach */
 public class FloorInBST {
+
+    /* Iterative Approach */
+    public static TreeNode floor(TreeNode root, int x){
+        TreeNode res = null;
+        while(root!=null){
+            if(root.val==x){
+                return root;
+            }
+            else if(root.val<x){
+                res = root; // potential floor
+                root = root.right;
+            }else root = root.left;
+        }
+        return res;
+    }
+
 /* Recursive approach
     public static TreeNode floor(TreeNode root, int x) {
         TreeNode[] res = new TreeNode[1];
@@ -23,18 +38,4 @@ public class FloorInBST {
         }else solve(root.left,x,res);
     }
 */
-/* Iterative Approach */
-    public static TreeNode floor(TreeNode root, int x){
-        TreeNode res = null;
-        while(root!=null){
-            if(root.val==x){
-                return root;
-            }
-            else if(root.val<x){
-                res = root; // potential floor
-                root = root.right;
-            }else root = root.left;
-        }
-        return res;
-    }
 }

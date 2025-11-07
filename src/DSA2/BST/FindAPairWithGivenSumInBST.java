@@ -1,5 +1,6 @@
-package DSA2.BinaryTree;
+package DSA2.BST;
 import java.util.*;
+import DSA2.BinaryTree.TreeNode;
 
 public class FindAPairWithGivenSumInBST {
     public boolean findTarget(TreeNode root, int k) {

@@ -1,4 +1,5 @@
-package DSA2.BinaryTree;
+package DSA2.BST;
+import DSA2.BinaryTree.TreeNode;
 
 public class CeilingInBST {
     public static TreeNode findCeilInBST(TreeNode root, int target){
