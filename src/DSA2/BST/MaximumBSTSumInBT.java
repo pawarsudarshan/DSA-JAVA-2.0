@@ -1,11 +1,11 @@
-package DSA2.BinaryTree;
+package DSA2.BST;
+
+import DSA2.BinaryTree.TreeNode;
 
 public class MaximumBSTSumInBT {
     public static void main(String[] args) {
 
     }
-}
-class Solution {
     public int maxSumBST(TreeNode root) {
         int[] res = new int[1];
         solve(root, res);
