@@ -19,12 +19,12 @@ public class DFS {
 
     public static List<Integer> dfs(List<List<Integer>> graph) {
         List<Integer> res = new ArrayList<>(); // for storing DFS of graph
-        Set<Integer> visited = new HashSet<>(); // for tracking visited nodes
+        boolean[] visited = new boolean[graph.size()]; // for tracking visited nodes
         int n = graph.size();
 
         for(int i = 0; i < n; i++){
-            if(!visited.contains(i)){ // check if the nodes is previously explored
-                visited.add(i); // add to visited
+            if(!visited[i]){ // check if the nodes is previously explored
+                visited[i] = true; // add to visited
                 res.add(i); // add to DFS
                 dfsHelper(graph,i,visited,res);
             }
@@ -32,10 +32,10 @@ public class DFS {
         return res;
     }
 
-    public static void  dfsHelper(List<List<Integer>> graph, int i, Set<Integer> visited, List<Integer> res){
+    public static void  dfsHelper(List<List<Integer>> graph, int i, boolean[] visited, List<Integer> res){
         for(int node: graph.get(i)){
-            if(!visited.contains(node)){
-                visited.add(node); // add to visited
+            if(!visited[node]){
+                visited[node] = true; // add to visited
                 res.add(node); // add to DFS
                 dfsHelper(graph,node,visited,res);
             }
