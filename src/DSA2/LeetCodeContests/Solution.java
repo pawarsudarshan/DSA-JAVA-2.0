@@ -1,23 +1,24 @@
-package DSA2.LCBiweekly;
+package DSA2.LeetCodeContests;
 
 public class Solution {
     public static void main(String[] args) {
 //        Q1
-//        System.out.println(minimumFlips(10));
+        System.out.println(minimumFlips(10));
+//        Q2
         System.out.println(totalWaviness(120,130));
     }
 //     Answer to Q1
-//    public static int minimumFlips(int n) {
-//        String binary = Integer.toBinaryString(n);
-//        int i=0,j=binary.length()-1, count = 0;
-//        while(i<binary.length()){
-//            if(binary.charAt(i)!=binary.charAt(j))
-//                count++;
-//            i++;
-//            j--;
-//        }
-//        return count;
-//    }
+    public static int minimumFlips(int n) {
+        String binary = Integer.toBinaryString(n);
+        int i=0,j=binary.length()-1, count = 0;
+        while(i<binary.length()){
+            if(binary.charAt(i)!=binary.charAt(j))
+                count++;
+            i++;
+            j--;
+        }
+        return count;
+    }
 
     public static int totalWaviness(int num1, int num2) {
         int count = 0;
