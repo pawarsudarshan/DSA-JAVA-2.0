@@ -30,10 +30,8 @@ public class NumberOfPaths {
         for(int i=1;i<m;i++){
             for(int j=1;j<n;j++){
                 for(int x=0;x<k;x++){
-                    if(dp[i-1][j][x] != 0 || dp[i][j-1][x] != 0){
-                        int rem2 = (x + grid[i][j])%k;
-                        dp[i][j][rem2] = dp[i-1][j][x] + dp[i][j-1][x];
-                    }
+                    int rem2 = (x + grid[i][j])%k;
+                    dp[i][j][rem2] = dp[i-1][j][x] + dp[i][j-1][x];
                 }
             }
         }
