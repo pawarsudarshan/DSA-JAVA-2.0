@@ -42,4 +42,50 @@ public class DoesPathExist {
 
         return false;
     }
+
+    // Solution of Find whether path exist on GfG
+    public boolean is_Possible(int[][] grid) {
+        int m = grid.length, n = grid[0].length, sr = 0, sc = 0, dr = 0, dc = 0;
+        boolean[][] visited = new boolean[m][n];
+
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(grid[i][j]==1){
+                    sr = i;
+                    sc = j;
+                }
+                if(grid[i][j]==2){
+                    dr = i;
+                    dc = j;
+                }
+            }
+        }
+
+        return isPathPossible(grid, sr, sc, dr, dc, m, n, visited);
+    }
+    boolean isPathPossible(int[][] grid, int sr, int sc, int dr, int dc, int m, int n, boolean[][] vis){
+        if(vis[sr][sc]) return false;
+        if(grid[sr][sc]==0) return false;
+        if(sr==dr && sc==dc) return true;
+
+        vis[sr][sc] = true;
+
+        if(sc-1>=0){ // left
+            if(isPathPossible(grid,sr,sc-1,dr,dc,m,n,vis)) return true;
+        }
+
+        if(sc+1<n){ // right
+            if(isPathPossible(grid,sr,sc+1,dr,dc,m,n,vis)) return true;
+        }
+
+        if(sr-1>=0){ // up
+            if(isPathPossible(grid,sr-1,sc,dr,dc,m,n,vis)) return true;
+        }
+
+        if(sr+1<m){ // down
+            if(isPathPossible(grid,sr+1,sc,dr,dc,m,n,vis)) return true;
+        }
+
+        return false;
+    }
 }
