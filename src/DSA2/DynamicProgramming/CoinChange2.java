@@ -1,7 +1,7 @@
 package DSA2.DynamicProgramming;
 import java.util.*;
 
-/* Coin Change 2
+/* Coin Change 2 => How many ways we can have a amount using coins[] array, one coin can be used multiple times
 => Recursive approach
 => Print All Possible ways
 => DP Memoization
