@@ -3,11 +3,6 @@ import java.util.*;
 
 public class CheapestFlightWithMostKStops {
     public static void main(String[] args) {
-//        int n = 4;
-//        int[][] flights = {{0,1,100},{1,2,100},{2,0,100},{1,3,600},{2,3,200}};
-//        int src = 0;
-//        int dest = 3;
-//        int k = 1;
         int n = 5;
         int[][] flights = {{0,1,5},{1,2,5},{0,3,2},{3,1,2},{1,4,1},{4,2,1}};
         int src = 0;
@@ -25,57 +20,45 @@ public class CheapestFlightWithMostKStops {
             adj.get(flight[0]).add(new Pair(flight[1], flight[2])); // directed graph
         }
 
-        // creating minHeap
-        PriorityQueue<Tuple2> pq = new PriorityQueue<>((a,b)->{
-            if(a.cost!=b.cost) return a.cost-b.cost;
-            return a.stops-b.stops;
-        });
+        int[] dist = new int[n];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+        dist[src] = 0;
 
-        pq.add(new Tuple2(0,src,0));
+        Queue<Tuple2> q = new LinkedList<>();
+        q.add(new Tuple2(0,0,src));
 
-        // for storing total flight cost
-        int[][] cost = new int[n][k+1];
-        for(int i=0;i<n;i++){
-            Arrays.fill(cost[i],Integer.MAX_VALUE);
-        }
-        cost[src][0] = 0;
+        while(!q.isEmpty()){
+            Tuple2 t = q.poll();
+            int node = t.node;
+            int stopsToReachNode = t.stops;
+            int costToReachNode = t.cost;
 
-        // moving through the graph
-        while(!pq.isEmpty()){
-            Tuple2 t = pq.poll();
-            int u = t.node;
-            int stopsTillHere = t.stops;
-            int nextStop = stopsTillHere + 1;
-            int currCost = t.cost;
-            System.out.println("node: "+t.node+", dist: "+t.cost);
-
-            if(t.stops>=k){
+            if(stopsToReachNode > k){
                 continue;
             }
 
-            // relaxing edges
-            for(Pair p: adj.get(t.node)){
-                int v = p.node;
-                int newCost = currCost + p.wt;
-                if(newCost < cost[v][nextStop]){
-                    cost[v][nextStop] = newCost;
-                    pq.add(new Tuple2(newCost,v,nextStop));
+            for(Pair p: adj.get(node)){
+                int edgeWeight = p.wt;
+                int adjNode = p.node;
+                if(costToReachNode + edgeWeight < dist[adjNode]){
+                    dist[adjNode] = costToReachNode + edgeWeight;
+                    q.add(new Tuple2(stopsToReachNode+1,dist[adjNode],adjNode));
                 }
             }
         }
-        int ans = Integer.MAX_VALUE;
-        for(int i=0;i<=k;i++){
-            ans = Math.max(ans,cost[dest][i]);
+
+        if(dist[dest] == Integer.MAX_VALUE){
+            return -1;
         }
-        if(ans==Integer.MAX_VALUE) return -1;
-        return ans;
+
+        return dist[dest];
     }
 }
 class Tuple2{
-    int cost,node,stops;
-    public Tuple2(int cost, int node, int stops){
+    int stops,cost,node;
+    public Tuple2(int stops, int cost, int node){
+        this.stops = stops;
         this.cost = cost;
         this.node = node;
-        this.stops = stops;
     }
 }
