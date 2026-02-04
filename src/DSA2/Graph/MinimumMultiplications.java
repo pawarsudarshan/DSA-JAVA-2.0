@@ -1,7 +1,5 @@
 package DSA2.Graph;
-
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class MinimumMultiplications {
     public static void main(String[] args) {
@@ -10,33 +8,31 @@ public class MinimumMultiplications {
         int[] arr = {2,5,7};
         System.out.println(minimumMultiplications(arr,start,end));
     }
-    public static int minimumMultiplications(int[] arr, int start, int end) {
-        Queue<Tuple2> q = new LinkedList<>();
-        q.add(new Tuple2(1, start, start));
-        int count = 0;
-        while(!q.isEmpty()){
-            count ++;
-            if(count>10001) return -1;
-            Tuple2 t = q.poll();
-            int currentNumber = t.node;
-            int currentProduct = t.cost;
-            int steps = t.stops;
-            long product = (long) currentProduct;
 
-            for(int i=0;i<arr.length;i++){
-                product *= arr[i];
-                product %= 100000;
+    public static int minimumMultiplications(int[] arr, int start, int end){
+        Set<Integer> set = new HashSet<>();
+        Queue<Integer> q = new LinkedList<>();
+        int level = 0;
+        q.add(start);
 
-                System.out.println(product);
-
-                if(product == end){
-                    return steps;
+        while (!q.isEmpty()) {
+            level++;
+            int n = q.size();
+            for (int i = 0; i < n; i++) {
+                int curr = q.poll();
+                for (int j = 0; j < arr.length; j++) {
+                    long product = (long) ((long) curr * (long) arr[j]);
+                    product %= 100000;
+                    int newProduct = (int) product;
+                    if (!set.contains(newProduct)) {
+                        set.add(newProduct);
+                        q.add(newProduct);
+                        if (newProduct == end) {
+                            return level;
+                        }
+                    }
                 }
-
-                q.add(new Tuple2(steps+1,(int)product,(int)product));
-                product = (long) currentProduct;
             }
-
         }
 
         return -1;
