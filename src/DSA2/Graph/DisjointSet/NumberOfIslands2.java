@@ -58,8 +58,8 @@ public class NumberOfIslands2 {
     }
 }
 class DisjointSet2 {
-    int[] parent;
-    int[] size;
+    public int[] parent;
+    public int[] size;
 
     DisjointSet2(int n) {
         parent = new int[n + 1];
@@ -85,9 +85,10 @@ class DisjointSet2 {
 
         if (size[parentU] > size[parentV]) {
             parent[parentV] = parentU;
+            size[parentU] += size[parentV];
         } else {
             parent[parentU] = parentV;
-            size[parentU] += size[parentV];
+            size[parentV] += size[parentU];
         }
     }
 
